@@ -1,7 +1,10 @@
 class RecordStoresControllers < ApplicationController
+    skip_before_action :verify_authenticity_token
     
     def show
-        record = Record.find(params[:id])
-        render json: record
+        recordstore = RecordStore.find(params[:id])
+        render json: recordstore
     end
+
+    
 end

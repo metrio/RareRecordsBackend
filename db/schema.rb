@@ -23,7 +23,8 @@ ActiveRecord::Schema.define(version: 2021_01_13_155226) do
 
   create_table "record_stores", force: :cascade do |t|
     t.integer "owner_id"
-    t.integer "address"
+    t.text "store_name"
+    t.string "address"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -32,15 +33,17 @@ ActiveRecord::Schema.define(version: 2021_01_13_155226) do
     t.string "album_name"
     t.string "artist_name"
     t.text "description"
+    t.integer "discogs_id"
     t.string "thumb_url"
     t.string "img_url"
-    t.integer "year_of_release"
     t.boolean "in_store"
+    t.string "condition"
+    t.integer "year_of_release"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "recordstorerecords", force: :cascade do |t|
+  create_table "recordstore_records", force: :cascade do |t|
     t.integer "recordstore_id"
     t.integer "discogs_id"
     t.integer "record_id"

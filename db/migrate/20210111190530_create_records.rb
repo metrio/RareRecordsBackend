@@ -4,10 +4,12 @@ class CreateRecords < ActiveRecord::Migration[6.0]
       t.string :album_name
       t.string :artist_name
       t.text :description
+      t.integer :discogs_id
       t.string :thumb_url
       t.string :img_url
-      t.integer :year_of_release
       t.boolean :in_store
+      t.string :condition
+      t.integer :year_of_release
       
 
       t.timestamps

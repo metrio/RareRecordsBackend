@@ -1,4 +1,6 @@
 class WishlistsController < ApplicationController
+    skip_before_action :verify_authenticity_token
+
 def index
     wishlists = Wishlist.all
     render json: wishlists
@@ -10,7 +12,9 @@ def show
 end
 
 def create
-    @wishlist = Wishlist.create(wishlist_params)
+    byebug
+    wishlist = Wishlist.create(params.permit(:user_id, :discogs_id, :record_id, :notes))
+    render json: wishlist
 end
 
 def destroy
@@ -18,9 +22,6 @@ def destroy
     render json: { success: 'User deleted successfully' }
 end
 
-private
-def wishlist_params
-    params.require(:wishlist).permit(:user_id, :discogs_id, :record_id)
-end
+
 
 end
