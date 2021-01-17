@@ -4,4 +4,6 @@ class Record < ApplicationRecord
     has_one :recordstore
     has_one :owner, through: :recordstore
 
+    validates :discogs_id, uniqueness: true, on: :create
+
 end

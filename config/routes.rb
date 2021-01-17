@@ -11,4 +11,7 @@ Rails.application.routes.draw do
     resources :recordstore_records, only: [:index, :show, :create, :update, :destroy]
  end
 
+ post '/login', to: 'auth#create'
+  get '/profile', to: 'users#profile'
+
 end
