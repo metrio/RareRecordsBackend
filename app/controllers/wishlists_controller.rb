@@ -1,5 +1,5 @@
 class WishlistsController < ApplicationController
-    skip_before_action :verify_authenticity_token
+    skip_before_action :authorized
 
 def index
     wishlists = Wishlist.all
@@ -12,6 +12,7 @@ def show
 end
 
 def create
+    byebug
     wishlist = Wishlist.create(params.permit(:user_id, :discogs_id, :record_id, :notes))
     render json: wishlist
 end

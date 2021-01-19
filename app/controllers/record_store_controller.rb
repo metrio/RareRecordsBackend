@@ -1,5 +1,5 @@
 class RecordStoresControllers < ApplicationController
-    skip_before_action :verify_authenticity_token
+    skip_before_action :authorized
     
     def show
         recordstore = RecordStore.find(params[:id])
