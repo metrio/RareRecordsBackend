@@ -12,14 +12,14 @@ def show
 end
 
 def create
-    byebug
     wishlist = Wishlist.create(params.permit(:user_id, :discogs_id, :record_id, :notes))
     render json: wishlist
 end
 
 def destroy
-    @wishlist.destroy
-    render json: { success: 'User deleted successfully' }
+    wishlist = Wishlist.find(params[:id])
+    wishlist.destroy
+    render json: { success: 'Wishlist Deleted' }
 end
 
 
