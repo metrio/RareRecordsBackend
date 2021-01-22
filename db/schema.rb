@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_13_155226) do
+ActiveRecord::Schema.define(version: 2021_01_22_022350) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,11 @@ ActiveRecord::Schema.define(version: 2021_01_13_155226) do
     t.integer "year_of_release"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "format"
+    t.string "catno"
+    t.string "label"
+    t.string "country"
+    t.boolean "official"
   end
 
   create_table "recordstore_records", force: :cascade do |t|
