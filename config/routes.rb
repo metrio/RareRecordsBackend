@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :wishlists, only: [:index, :show, :create, :update, :destroy]
   end
 
- resources :recordstores, only: [:create, :index, :show, :destroy] do
+ resources :record_store, only: [:create, :index, :show, :destroy] do
     resources :recordstore_records, only: [:index, :show, :create, :update, :destroy]
  end
 
