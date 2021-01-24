@@ -1,4 +1,4 @@
-class RecordStoreController < ApplicationController
+class RecordStoresController < ApplicationController
     skip_before_action :authorized
     
     def show

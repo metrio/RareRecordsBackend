@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_24_004405) do
+ActiveRecord::Schema.define(version: 2021_01_24_225217) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 2021_01_24_004405) do
   end
 
   create_table "recordstore_records", force: :cascade do |t|
-    t.integer "recordstore_id"
+    t.integer "record_store_id"
     t.integer "discogs_id"
     t.integer "record_id"
     t.datetime "created_at", precision: 6, null: false

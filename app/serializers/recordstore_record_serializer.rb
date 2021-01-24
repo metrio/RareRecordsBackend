@@ -1,3 +1,3 @@
 class RecordstoreRecordSerializer < ActiveModel::Serializer
-  attributes :id, :recordstore_id, :discogs_id, :record_id
+  attributes :id, :discogs_id, :record_id, :recordstore_id
 end
