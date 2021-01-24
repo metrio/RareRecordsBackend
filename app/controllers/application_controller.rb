@@ -35,14 +35,14 @@ class ApplicationController < ActionController::API
     end
 
     def owner_logged_in?
-        !!current_owner
-    end
-
-    def logged_in?
         !!current_user
     end
 
+    def logged_in?
+        !!current_owner
+    end
+
     def authorized
-        render json: { message: 'Please log in' }, status: :unauthorized unless logged_in?
+        render json: { message: 'Please log in' }, status: :unauthorized unless logged_in? || owner_logged_in?
     end
 end
