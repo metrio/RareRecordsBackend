@@ -7,12 +7,17 @@ def show
 end
 
 def profile
-    render json: { owner: ownerSerializer.new(@owner)}, status: :accepted
+    render json: { owner: OwnerSerializer.new(@owner)}, status: :accepted
 end
 
 def create
-    @owner = owner.create(owner_params)
-    render json: @owner
+    @owner = Owner.create(owner_params)
+    if @owner.valid?
+        @token = encode_token(owner_id: @owner.id)
+        render json: {owner: OwnerSerializer.new(@owner), jwt: @token} , status: :created
+    else 
+        render json: {error: 'failed to create owner'}, status: :not_accepted
+    end
 end
 
 private
