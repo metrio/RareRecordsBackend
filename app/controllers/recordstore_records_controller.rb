@@ -12,7 +12,7 @@ class RecordstoreRecordsController < ApplicationController
     end
 
     def create
-        rsRecord = RecordstoreRecord.create(params.permit!(:record_store_id, :discogs_id, :record_id))
+        rsRecord = RecordstoreRecord.create(params.require(:recordstore_record).permit!)
         render json: rsRecord
     end
 
