@@ -13,7 +13,13 @@ class RecordsController < ApplicationController
     end
 
     def create
-        record = Record.create(params.permit(:album_name, :artist_name, :discogs_id, :thumb_url, :img_url, :year_of_release))
+        record = Record.create(params.require(:record).permit!)
+        render json: record
+    end
+
+    def update
+        record = Record.find(params[:id])
+        record.update(params.require(:record).permit!)
         render json: record
     end
 end
