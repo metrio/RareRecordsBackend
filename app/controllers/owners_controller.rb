@@ -7,7 +7,6 @@ def show
 end
 
 def profile
-    
     render json: { owner: OwnerSerializer.new(@owner)}, status: :accepted
 end
 
